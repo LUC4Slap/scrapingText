@@ -15,9 +15,7 @@ async function start(url, seletor) {
   let html = "";
   nomes.forEach((nome, index) => {
       produtos[index] = nome
-      html +=  `
-        <h3>${produtos[index]}</h3>
-    `
+      html +=  `${produtos[index]}\n`
   })
   // links.forEach((link, index) => {
   //   html +=  `
@@ -25,7 +23,7 @@ async function start(url, seletor) {
   //       <a href="${link}">Ver</a>
   //   `
   // });
-  fs.writeFileSync(`./${Date.now()}.html`, html,{flag: 'a+'}, function(err) {
+  fs.writeFileSync(`./${Date.now()}.txt`, html,{flag: 'a+'}, function(err) {
       if(err){
         console.log("Erro ou gerar txt: " + err);
         throw err;
@@ -35,4 +33,4 @@ async function start(url, seletor) {
   console.log(produtos);
   browser.close();
 }
-start("https://www.naointendo.com.br/", "title");
+start("https://www.convenienciamd.com.br/", "tituloUmaLinha");
